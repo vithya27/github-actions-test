@@ -15,7 +15,7 @@ jobs:
         run: echo "Current time in Github is $(date), ${GITHUB_OUTPUT}"
         # create a value and pass to the next step. adds to env variable. double > means append. single mean overwrite
       - id: s02
-        run: echo 'CURR_DATE=$(date)' >> $GITHUB_OUTPUT
+        run: echo "CURR_DATE=$(date)" >> $GITHUB_OUTPUT
       - id: s03
         uses: mscoutermarsh/cowsays-action@master
         with:
