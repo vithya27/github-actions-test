@@ -12,12 +12,16 @@ jobs:
     steps:
       - id: s01
         # running some shell bash command
-        run: echo "Current time in Github is $(date)!"
+        run: echo "Current time in Github is $(date), ${GITHUB_OUTPUT}"
+        # create a value and pass to the next step. adds to env variable. double > means append. single mean overwrite
       - id: s02
+        run: echo 'CURR_DATE=$(date)' >> $GITHUB_OUTPUT
+      - id: s03
         uses: mscoutermarsh/cowsays-action@master
         with:
-          text: "ship ship ship!"
-          color: "cyan"
+          # step - context
+          text: "ship ship ship! ${{ steps.s02.outputs.CURR_DATE }}"
+          color: "white"
 
       # - id: s02
       #   run: ls -al
