@@ -14,6 +14,6 @@ jobs:
         # running some shell bash command
         run: echo "Current time in Github is $(date)!"
       - id: s02
-        run: ls -la
+        run: ls -l
       - id: s03
-        run: cat ./hello_world.txt
+        run: cat hello_world.txt
